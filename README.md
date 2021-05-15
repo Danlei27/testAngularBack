@@ -1,4 +1,4 @@
 ﻿# testAngularBack
  - npm i
  - npm start
-analisar knexfile para config banco de dado
+analisar knexfile, para config do banco de dados
