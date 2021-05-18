@@ -4,7 +4,9 @@ module.exports = app => {
         .get(app.api.user.getUsers)
 
     app.route('/user/:id')
+        .get(app.api.user.getUserParam)
         .put(app.api.user.updateUser)
         .delete(app.api.user.remove)
-
+    app.route('/user')
+        .get(app.api.user.getUser)
 }

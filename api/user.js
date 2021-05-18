@@ -1,4 +1,17 @@
 module.exports = app =>{
+    const getUser = (req, res)=>{
+        app.db('users')
+            .where({id: req.body.id})	
+            .then(user => {res.json(user).status(200)})
+            .catch(err => res.status(400).json(err))    
+    }
+    const getUserParam = (req, res)=>{
+        app.db('users')
+            .where({id: req.params.id})	
+            .then(user => {res.json(user).status(200)})
+            .catch(err => res.status(400).json(err))    
+    }
+
     const getUsers = (req, res)=>{
         app.db('users')
         .select("*")
@@ -35,5 +48,5 @@ module.exports = app =>{
             .catch(err => res.status(400).json(err))
     }
 
-    return{ save, remove, updateUser,getUsers }
+    return{ save, remove, updateUser,getUsers, getUser, getUserParam }
 }
